@@ -1,0 +1,21 @@
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+
+while (true) {
+  var max = 0; // Pour récupérer la valeur max
+  var imax = 0; // pour récupérer l'indice de la montagne la plus hauts
+  for (var i = 0; i < 8; i++) {
+      var mountainH = parseInt(readline()); // represents the height of one mountain, from 9 to 0. Mountain heights are provided from left to right.
+	//Effectuer la comparaison pour avoir toujours la valeur max      
+	if (mountainH > max) {
+          max = mountainH;
+          imax = i;
+      }
+  }
+//
+  print(imax);
+}
+
