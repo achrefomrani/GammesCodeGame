@@ -29,5 +29,53 @@ while (true) {
         initialTX++;
     }
 }
+================================================
+                    06/04/2016
+================================================
+V2: Modifier le code et ajouter les commentaires
+================================================
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ * ---
+ * Hint: You can use the debug stream to print initialTX and initialTY, if Thor seems not follow your orders.
+ **/
 
+var inputs = readline().split(' ');
+var lightX = parseInt(inputs[0]); // the X position of the light of power
+var lightY = parseInt(inputs[1]); // the Y position of the light of power
+var initialTX = parseInt(inputs[2]); // Thor's starting X position
+var initialTY = parseInt(inputs[3]); // Thor's starting Y position
 
+//initialiser et affectuer la position initial de thor
+var tx = initialTX;
+var ty = initialTY;
+// game loop
+while (true) {
+    var remainingTurns = parseInt(readline()); // The remaining amount of turns Thor can move. Do not remove this line.
+    
+    //initialiser les deux variable pour contenir la direction à suivre
+    var dirX = "";
+    var dirY = "";
+    // Write an action using print()
+    // To debug: printErr('Debug messages...');
+    //comparaison de la postion de thor et du l'éclaire sur l'axe Y
+    if(ty > lightY){
+        dirY = "N"; // affecter la direction
+        ty--; //déincrementer la postion de thor sur l'axe Y
+    }else if(ty < lightY){
+        dirY = "S";// affecter la direction
+        ty++;//déincrementer la postion de thor sur l'axe Y
+    }
+    
+    //comparaison de la postion de thor et du l'éclaire sur l'axe X
+    if(tx > lightX){
+        dirX = "W";// affecter la direction
+        tx--;//déincrementer la postion de thor sur l'axe X
+    }else if(tx < lightX){
+        dirX = "E";// affecter la direction
+        tx++;//déincrementer la postion de thor sur l'axe X
+    }
+    
+    print(dirY+dirX);//concaténation des deux directions
+}
