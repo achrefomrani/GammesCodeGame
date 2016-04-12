@@ -1,3 +1,6 @@
+////////////////////////////////
+// 11/04/2016
+////////////////////////////////
 var n = parseInt(readline()); // the number of temperatures to analyse
 
 //ajouter .split(' ') pour supprimer les espaces entre les valeurs
@@ -28,3 +31,45 @@ print(tmpVal);
 
 // ce code permet de passer les tests: 
 // 01 données simples, 02 uniquement des nombres négatifs et 06 pas de température
+
+
+///////////////////////////////////////////
+//12/04/2016
+//////////////////////////////////////////
+//la partie ci dessous contient le nouveau script qui fonctionne avec tout les tests
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+var n = parseInt(readline()); // the number of temperatures to analyse
+var temps = readline().split(' '); // the n temperatures expressed as integers ranging from -273 to 5526
+
+
+printErr(temps);
+printErr(n);
+// Write an action using print()
+// To debug: printErr('Debug messages...');
+//2 variable pour contenir la valeur positive la plus proche de 0 et de même pour la valeur négative
+var tmpValp = temps[0];
+var tmpValn = temps[0];
+//test si le nombre de valeurs est supérieur à 0 alors on effectue le traitement 	  
+	  if(n !== 0){
+	  	for(i=1;i<n;i++){
+    	//test pour récuperer la valeur positive la plus proche de 0    		
+    			if(temps[i] > 0 && temps[i] < Math.abs(tmpValp)){
+       				tmpValp = temps[i]
+        //test pour récuperer la valeur négative la plus proche de 0
+    			}else if(temps[i] < 0 && Math.abs(temps[i]) < Math.abs(tmpValn)){
+        			tmpValn = temps[i];
+    			}
+	  	}
+	//test pour choisir le bonne valeur à afficher si deux nombres sont aussi proches de zéro, 
+        //alors l'entier positif sera considéré comme étant le plus proche de zéro
+		if(Math.abs(tmpValp) === Math.abs(tmpValn)){print(tmpValp);}
+		else if (Math.abs(tmpValp) > Math.abs(tmpValn)){print(tmpValn);}
+		else if (Math.abs(tmpValp) < Math.abs(tmpValn)){print(tmpValp);}
+	}else{
+	//afficher 0 si le nombre de valeurs entre est égale à zéro
+    		print(0);
+	}
