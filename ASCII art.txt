@@ -1,0 +1,27 @@
+//======================
+// 13/04/2016
+//======================
+
+var L = parseInt(readline());
+var H = parseInt(readline());
+var T = readline();
+//tableau qui contient les lettres
+var alph =['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+//juste un affichage
+ printErr("L: "+L);
+ printErr("H: "+H);
+ printErr("T: "+T);
+//Connaitre la position de la lettre 
+ for(var j=0;j<alph.length;j++){
+     if(T === alph[j]){
+         printErr(alph[j]+" : "+j)
+         var n = j;
+     }
+ }
+//extraction de la sous chaine qui représente la lettre
+for (var i = 0; i < H; i++) {
+    var ROW = readline();
+    print(ROW.substring(n*L,L*(n+1)));
+}
+//le code vérifie le test pour une seule lettre
+//Reste à revoir les autres tests
