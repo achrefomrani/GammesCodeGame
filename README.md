@@ -9,3 +9,4 @@
    * 12/04/2016: Mettre à jour le script pour passer tous les tests
 * ASCII art:
    * 13/04/2016: 1er script qui vérifie le test pour une seule lettre
+   * 14/04/2016: Mettre à jour le script pour passer les tests 01, 02, 03 et 05
