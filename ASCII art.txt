@@ -68,3 +68,59 @@ var alphabet ='ABCDEFGHIJKLMNOPQRSTUVWXYZ?';
     //afficher le resultat
     print(res);
 }
+
+//======================
+// 15/04/2016
+//======================
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+var L = parseInt(readline());
+var H = parseInt(readline());
+var T = readline();
+//var alphabet =['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','?'];
+//Remplacer le tableau d'alphabet par une chaine de caractère qui contient 
+//leurs concaténations plus le signe de point d'interrogation '?'
+var alphabet ='ABCDEFGHIJKLMNOPQRSTUVWXYZ?';
+//juste un affichage
+ printErr("L: "+L);
+ printErr("H: "+H);
+ printErr("T: "+T);
+
+//Une boucle pour effectuer:
+// * La vérification si l'élément d'une chaine est un caractère ou non 
+// * Remplacer le caractère minuscule par majuscule 
+// * Remplacer un non caractère par le signe '?'
+for(var i = 0 ; i < T.length; i++){
+    if((T.charCodeAt(i) >= 65 && T.charCodeAt(i) <=90) || (T.charCodeAt(i) >= 97 && T.charCodeAt(i) <=122)){
+        T = T.replace(T.charAt(i), T.charAt(i).toUpperCase()); 
+    }else{
+        T = T.replace(T.charAt(i), alphabet.charAt(26));
+    }
+}
+
+
+// boucle pour effectuer les itération sur l'hauteur
+ for (var i = 0; i < H; i++) {
+    //variable pour contenir le resultat à afficher pour chaque itération de H
+    var res ="";
+    // lire la représentation des alphabets en étoile
+    var ROW = readline();
+    //parcourir la chaine de caractère a transformé
+    for(var k=0;k<T.length;k++){
+      //parcourir la chaine de caractère alphabet 
+      for(var j=0;j<alphabet.length;j++){
+          //effectuer une comparaison pour connaitre la position du caractère dans la chaine alphabet
+            if(T.charAt(k).toUpperCase() == alphabet.charAt(j)){
+                n = j;
+            }
+        }
+    //extraire la sous chaine qui représente la lettre depuis ROW    
+    res += ROW.substring(n*L,L*(n+1));
+    }
+    //afficher le resultat
+    print(res);
+}
